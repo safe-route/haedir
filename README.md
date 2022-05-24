@@ -19,3 +19,4 @@ This is the central project visibility repository, providing you with a high-lev
 - Risk Management Documents: https://docs.google.com/document/d/1M5otteETpyKzQ8FUmXFmE--7y0xWhPg1/edit?usp=sharing&ouid=108000726898413588789&rtpof=true&sd=true
 - Sprint Backlog: To Be Added or not...
 - Figma: https://www.figma.com/file/Cn9PFgj1dZV0VYGosjn1tx/Safe-Route?node-id=0%3A1
+- List of Question: https://docs.google.com/document/d/19-62w-kBfKQ3oxC48K3GisvmXC926CxO1NuXsO6qw4E/edit?usp=sharing
