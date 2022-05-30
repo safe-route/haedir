@@ -17,6 +17,9 @@ This is the central project visibility repository, providing you with a high-lev
 - Project Schedule: https://docs.google.com/spreadsheets/d/119f0Df_cexx2XERhFKch1P9jZyjw3M7L/edit?usp=sharing&ouid=108000726898413588789&rtpof=true&sd=true
 - Infrastructure (subject to change): https://drive.google.com/file/d/1-sSHtzpbLx0dG5DKdmQhJDaWeBk8oNLR/view?usp=sharing
 - Risk Management Documents: https://docs.google.com/document/d/1M5otteETpyKzQ8FUmXFmE--7y0xWhPg1/edit?usp=sharing&ouid=108000726898413588789&rtpof=true&sd=true
+- OKRs: https://docs.google.com/document/d/1Y7cj9sI6R5-Oswl3LwKtFmsa2ZlrOi7Fu2AdM9_Va_k/edit?usp=drivesdk
+- Questions compilations: https://docs.google.com/document/d/19-62w-kBfKQ3oxC48K3GisvmXC926CxO1NuXsO6qw4E/edit?usp=drivesdk
+- Mentoring sheet: https://docs.google.com/document/d/1D3n3aSPo53AXyQhA_2vRIMWpK0t2XVru5b5_l6M-hCs/edit?usp=drivesdk
 - Sprint Backlog: To Be Added or not...
 - Figma: https://www.figma.com/file/Cn9PFgj1dZV0VYGosjn1tx/Safe-Route?node-id=0%3A1
 - List of Question: https://docs.google.com/document/d/19-62w-kBfKQ3oxC48K3GisvmXC926CxO1NuXsO6qw4E/edit?usp=sharing
