@@ -13,6 +13,7 @@ Project documents, central documentation and artifacts.
     - [Android Path](#android-path)
     - [Cloud Computing Path](#cloud-computing-path)
     - [Machine Learning Path](#machine-learning-path)
+  - [Research and Paper Source](#research-and-paper-source)
 ## Overview
 
 This is the central project visibility repository, providing you with a high-level overview of the project safe route. For a deeper overview of the project please refer to the respective project in the group.
@@ -59,3 +60,7 @@ Central repository documentation for each learning path.
 14. [web-app-sandbox](https://gitlab.com/safe-route/cloud-computing/web-app-sandbox)
 
 ### Machine Learning Path
+
+## Research and Paper Source
+
+- E. Eck, Chainey, G. Cameron, Leitner, E. Wilson. "Mapping Crime: Understanding Hot Spots". NIJ Special Report (2005): 0-77.
