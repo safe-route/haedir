@@ -1,7 +1,18 @@
 # Háedir
 
-Project documents and artifacts.
+Project documents, central documentation and artifacts.
 
+## Table of Contents
+
+- [Háedir](#háedir)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [How to navigate](#how-to-navigate)
+  - [Project Artifacts](#project-artifacts)
+  - [Documentation](#documentation)
+    - [Android Path](#android-path)
+    - [Cloud Computing Path](#cloud-computing-path)
+    - [Machine Learning Path](#machine-learning-path)
 ## Overview
 
 This is the central project visibility repository, providing you with a high-level overview of the project safe route. For a deeper overview of the project please refer to the respective project in the group.
@@ -23,3 +34,28 @@ This is the central project visibility repository, providing you with a high-lev
 - Sprint Backlog: To Be Added or not...
 - Figma: https://www.figma.com/file/Cn9PFgj1dZV0VYGosjn1tx/Safe-Route?node-id=0%3A1
 - List of Question: https://docs.google.com/document/d/19-62w-kBfKQ3oxC48K3GisvmXC926CxO1NuXsO6qw4E/edit?usp=sharing
+
+## Documentation
+
+Central repository documentation for each learning path.
+
+### Android Path
+
+### Cloud Computing Path
+
+1. [calculate_trigger_function](https://gitlab.com/safe-route/cloud-computing/calculate_trigger_function).
+2. [cloud-shell-script](https://gitlab.com/safe-route/cloud-computing/cloud-shell-script).
+3. [clustering-from-bq](https://gitlab.com/safe-route/cloud-computing/clustering-from-bq)
+4. [clustering-job](https://gitlab.com/safe-route/cloud-computing/clustering-job)
+5. [front-facing-website](https://gitlab.com/safe-route/cloud-computing/front-facing-website)
+6. [get_subdistrict_stat](https://gitlab.com/safe-route/cloud-computing/get_subdistrict_stat)
+7. [json-to-firestore](https://gitlab.com/safe-route/cloud-computing/json-to-firestore)
+8. [parse-to-bigquery-table](https://gitlab.com/safe-route/cloud-computing/parse-to-bigquery-table)
+9. [return_all_subdistrict_coord](https://gitlab.com/safe-route/cloud-computing/return_all_subdistrict_coord)
+10. [safe-route-data](https://gitlab.com/safe-route/cloud-computing/safe-route-data)
+11. [saferoute-jwt-express](https://gitlab.com/safe-route/cloud-computing/saferoute-jwt-express)
+12. [service-composer](https://gitlab.com/safe-route/cloud-computing/services-composer)
+13. [valhalla-server](https://gitlab.com/safe-route/cloud-computing/valhalla-server)
+14. [web-app-sandbox](https://gitlab.com/safe-route/cloud-computing/web-app-sandbox)
+
+### Machine Learning Path
