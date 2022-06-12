@@ -6,14 +6,39 @@ Project documents, central documentation and artifacts.
 
 - [Háedir](#háedir)
   - [Table of Contents](#table-of-contents)
+  - [Team C22-PS305](#team-c22-ps305)
   - [Overview](#overview)
   - [How to navigate](#how-to-navigate)
   - [Project Artifacts](#project-artifacts)
-  - [Documentation](#documentation)
-    - [Android Path](#android-path)
-    - [Cloud Computing Path](#cloud-computing-path)
-    - [Machine Learning Path](#machine-learning-path)
+- [Documentation](#documentation)
+- [Android Path](#android-path)
+- [Cloud Computing Path](#cloud-computing-path)
+      - [For a Bird Eye View of the API Docs Go Here](#for-a-bird-eye-view-of-the-api-docs-go-here)
+  - [Overview](#overview-1)
+- [Machine Learning Path](#machine-learning-path)
+  - [Overview](#overview-2)
+  - [Clustering](#clustering)
+    - [Model Description](#model-description)
+    - [Model generation](#model-generation)
+    - [Centroid](#centroid)
+    - [Statistic](#statistic)
+  - [Habit Tracker](#habit-tracker)
+    - [Model Description](#model-description-1)
+    - [Model Generation](#model-generation-1)
+    - [Model](#model)
+    - [Flask](#flask)
+  - [Known Issues](#known-issues)
   - [Research and Paper Source](#research-and-paper-source)
+
+## Team C22-PS305
+
+* M2002F0101 - Christopher Chandrasaputra
+* M2006F0613 - Hanif Adam Al Abraar
+* A2183F1771 - Fillah Akbar Firdausyah
+* A2009J0968 - Ikhsan Cahya Mardika 
+* C2009F0967 - I Putu Cahya Adi Ganesha
+* C2306G2617 - Muhammad Anggi Wirahmat
+
 ## Overview
 
 This is the central project visibility repository, providing you with a high-level overview of the project safe route. For a deeper overview of the project please refer to the respective project in the group.
@@ -36,13 +61,17 @@ This is the central project visibility repository, providing you with a high-lev
 - Figma: https://www.figma.com/file/Cn9PFgj1dZV0VYGosjn1tx/Safe-Route?node-id=0%3A1
 - List of Question: https://docs.google.com/document/d/19-62w-kBfKQ3oxC48K3GisvmXC926CxO1NuXsO6qw4E/edit?usp=sharing
 
-## Documentation
+# Documentation
 
 Central repository documentation for each learning path.
 
-### Android Path
+# Android Path
 
-### Cloud Computing Path
+# Cloud Computing Path
+
+#### For a Bird Eye View of the API Docs Go [Here](https://gitlab.com/safe-route/cloud-computing/gcp-endpoints)
+
+## Overview
 
 1. [calculate_trigger_function](https://gitlab.com/safe-route/cloud-computing/calculate_trigger_function).
 2. [cloud-shell-script](https://gitlab.com/safe-route/cloud-computing/cloud-shell-script).
@@ -59,7 +88,195 @@ Central repository documentation for each learning path.
 13. [valhalla-server](https://gitlab.com/safe-route/cloud-computing/valhalla-server)
 14. [web-app-sandbox](https://gitlab.com/safe-route/cloud-computing/web-app-sandbox)
 
-### Machine Learning Path
+# Machine Learning Path
+
+## Overview
+
+* **[Clustering](#clustering)**
+* **[Habit Tracker](#habit-tracker)**
+* **[Known Issues](#known-issues)**
+* **[Team](#team)**
+
+## Clustering
+
+### Model Description
+
+Clustering model is produced using scikit-learn DBScan class. Centroid comes from the average of each cluster with the range is the maximum distance of centroid to one of cluster members.
+
+### Model generation
+
+- Model : Use create_model() method
+- Statistic : Use generate_area_statistic(data) with data being the DataFrame of csv file
+
+### Centroid
+JSON File Format
+```
+{
+    "centroids": [
+        {
+            "id": ... (int),
+            "latitude": ... (float),
+            "longitude": ... (float),
+            "range": ... (float),
+            "crime_info": {
+                <crime_type>(string): ... (int),
+                ...
+            }
+        },
+        ...
+    ]
+}
+```
+
+### Statistic
+JSON File Format
+```
+{
+    "statistic": [
+        "subdistrict": ... (string),
+        "total_crime": ... (int),
+        "crime_info": {
+            <crime_type>(string): ... (int),
+            ...
+        }
+        "coordinates": ... (list of* float)
+    ]
+}
+```
+Statistic JSON File Note:
+- coordinates list order is latitude, longitude
+- list may contain another list
+- please take a look at area_statistic.json before use
+
+
+## Habit Tracker
+
+### Model Description
+
+Habit tracker model is created for each user that use the application, it utilize LSTM mechanics to predict multivariate multilabel time series data. Model will be fed with multiple inputs which is date, time, and location. The model will give location (latitude and longitude) as output.
+
+### Model Generation
+
+User's model will be generated when the endpoint ```/create``` called with username as URL parameters*.
+
+\* further endpoint detail will be given [below](#flask)
+
+### Model
+```
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm (LSTM)                 (None, 15, 64)            18176     
+                                                                 
+ lstm_1 (LSTM)               (None, 15, 32)            12416     
+                                                                 
+ lstm_2 (LSTM)               (None, 16)                3136      
+                                                                 
+ flatten (Flatten)           (None, 16)                0         
+                                                                 
+ dense (Dense)               (None, 16)                272       
+                                                                 
+ dense_1 (Dense)             (None, 8)                 136       
+                                                                 
+ dense_2 (Dense)             (None, 2)                 18        
+                                                                 
+=================================================================
+Total params: 34,154
+Trainable params: 34,154
+Non-trainable params: 0
+_________________________________________________________________
+```
+* Model input shape=(15, 6)
+* Model input data columns:
+
+| column      | type    | range          | description              |
+|-------------|---------|----------------|--------------------------|
+| year        | integer |        *       | year timestamp           |
+| month       | integer |     1 - 12     | month timestamp          |
+| day_of_week | integer |      1 - 7     | day of week              |
+| time        | integer |    0 - 1440    | cumulative minute of day |
+| latitude    |  float  |  -90.0 - 90.0  | latitude                 |
+| longitude   |  float  | -180.0 - 180.0 | longitude                |
+
+* Model output:
+
+| column    | type  | range          | description |
+|-----------|-------|----------------|-------------|
+| latitude  | float |  -90.0 - 90.0  | latitude    |
+| longitude | float | -180.0 - 180.0 | longitude   |
+
+### Flask
+url: https://model-ck44nnq7hq-as.a.run.app
+
+| endpoint  | url_param        | body           | method |
+|-----------|------------------|----------------|--------|
+| /create   | username(string) |        -       | GET    |
+| /train    | username(string) | json-object-1* | POST   |
+| /forecast | username(string) | json-object-2* | POST   |
+
+\* refer to the format below
+
+* json-object-1
+```
+{
+	"username": ...,
+	"data": [
+	        {
+	            "datetime": ...,
+	            "latitude": ...,
+	            "longitude": ...
+	        },
+	        ...
+	        {
+	            "datetime": ...,
+	            "latitude": ...,
+	            "longitude": ...
+	        }
+	    ]
+}
+```
+
+* json-object-2
+```
+{
+	"username": ...,
+    "email": ...,
+    "latitude": ...,
+	"longitude": ...,
+	"data": [
+	        {
+	            "datetime": ...,
+	            "latitude": ...,
+	            "longitude": ...
+	        },
+	        ...
+	        {
+	            "datetime": ...,
+	            "latitude": ...,
+	            "longitude": ...
+	        }
+	    ]
+}
+```
+* json key-value description
+
+| key       | value                | range                     |
+|-----------|----------------------|---------------------------|
+| username  |        string        |             -             |
+| email     |        string        |             -             |
+| latitude  |         float        |        -90.0 - 90.0       |
+| longitude |         float        |       -180.0 - 180.0      |
+| data      | json-array-of-object |             -             |
+| datetime  |       timestamp      | %yyyy/%mm/%dd %hh:%MM:%ss |
+
+## Known Issues
+
+* Clustering - Require real data from local authorities
+* Habit Tracker - Model architecture has not yet been optimized
+* Habit Tracker - Costly data and model pipelining
+* Habit Tracker - Require a lots of data to create optimum model
+
 
 ## Research and Paper Source
 
