@@ -82,11 +82,10 @@ Central repository documentation for each learning path.
 7. [json-to-firestore](https://gitlab.com/safe-route/cloud-computing/json-to-firestore)
 8. [parse-to-bigquery-table](https://gitlab.com/safe-route/cloud-computing/parse-to-bigquery-table)
 9. [return_all_subdistrict_coord](https://gitlab.com/safe-route/cloud-computing/return_all_subdistrict_coord)
-10. [safe-route-data](https://gitlab.com/safe-route/cloud-computing/safe-route-data)
-11. [saferoute-jwt-express](https://gitlab.com/safe-route/cloud-computing/saferoute-jwt-express)
-12. [service-composer](https://gitlab.com/safe-route/cloud-computing/services-composer)
-13. [valhalla-server](https://gitlab.com/safe-route/cloud-computing/valhalla-server)
-14. [web-app-sandbox](https://gitlab.com/safe-route/cloud-computing/web-app-sandbox)
+10. [saferoute-jwt-express](https://gitlab.com/safe-route/cloud-computing/saferoute-jwt-express)
+11. [service-composer](https://gitlab.com/safe-route/cloud-computing/services-composer)
+12. [valhalla-server](https://gitlab.com/safe-route/cloud-computing/valhalla-server)
+13. [web-app-sandbox](https://gitlab.com/safe-route/cloud-computing/web-app-sandbox)
 
 # Machine Learning Path
 
